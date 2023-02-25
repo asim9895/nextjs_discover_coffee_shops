@@ -4,7 +4,7 @@ import Banner from "@/components/banner/Banner";
 import { useState } from "react";
 
 const Home = () => {
-  const [button_state, setbutton_state] = useState("View nearby coffee stores");
+  const [button_state, setbutton_state] = useState("View nearby coffee shops");
   const onClickButton = () => {
     setTimeout(() => {
       setbutton_state("loading.....");
