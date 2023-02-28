@@ -2,6 +2,8 @@ import Head from "next/head";
 import styles from "@/styles/Home.module.css";
 import Banner from "@/components/banner/Banner";
 import { useState } from "react";
+import Image from "next/image";
+import Avatar from "../../public/avatar.png";
 
 const Home = () => {
   const [button_state, setbutton_state] = useState("View nearby coffee shops");
@@ -20,9 +22,16 @@ const Home = () => {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className={styles.main}>
-        <Banner buttonText={button_state} onClickButton={onClickButton} />
-      </main>
+      <div>
+        <div className={styles.main}>
+          <Banner buttonText={button_state} onClickButton={onClickButton} />
+          <Image
+            src={Avatar}
+            alt="Avatar"
+            style={{ height: 400, width: 600 }}
+          />
+        </div>
+      </div>
     </>
   );
 };
