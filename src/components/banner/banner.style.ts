@@ -29,4 +29,5 @@ export const Button = styled.button`
   font-size: 17px;
   font-weight: 600;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  border-radius: 3px;
 `;
