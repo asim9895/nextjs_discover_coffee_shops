@@ -4,8 +4,20 @@ import Banner from "@/components/banner/Banner";
 import { useState } from "react";
 import Image from "next/image";
 import Avatar from "../../public/avatar.png";
+import Card from "@/components/Card/Card";
+import { CardContainer } from "@/styled_components/index.style";
+import Store from "../../public/store.png";
+import { stores } from "@/data/coffee_store";
 
-const Home = () => {
+export async function getStaticProps(context: any) {
+  return {
+    props: {
+      store_data: stores,
+    },
+  };
+}
+
+const Home: React.FC<any> = ({ store_data }) => {
   const [button_state, setbutton_state] = useState("View nearby coffee shops");
   const onClickButton = () => {
     setTimeout(() => {
@@ -31,6 +43,20 @@ const Home = () => {
             style={{ height: 400, width: 600 }}
           />
         </div>
+
+        <CardContainer>
+          {store_data?.length > 0 &&
+            store_data?.map((store: any) => {
+              return (
+                <Card
+                  name={store.name}
+                  href="/coffee-store/new-store"
+                  image_url={Store}
+                  key={store.id}
+                />
+              );
+            })}
+        </CardContainer>
       </div>
     </>
   );
